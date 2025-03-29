@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timenest/presentation/screens/addTask.dart';
+import 'package:timenest/presentation/screens/add_task.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
