@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:timenest/presentation/screens/home/home.dart';
-import '../../model/task_model.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({Key? key}) : super(key: key);
@@ -17,6 +14,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   final TextEditingController _taskNameController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   DateTime _selectedDate = DateTime(2025, 1, 1);
+  // bool _isReminderOn = true;
   int _selectedIndex = 0;
   String _selectedOption = 'Option 1';
 
@@ -24,27 +22,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     setState(() {
       _selectedIndex = index;
     });
-  }
-
-  void saveTask(Task task) {
-    // Access the already opened box
-    final box = Hive.box<Task>('tasks');
-    box.add(task); // Save the task
-  }
-
-  void viewTask() {
-    final taskBox = Hive.box<Task>('tasks');
-
-    final tasks = taskBox.values.toList();
-    for (int index = 0; index < tasks.length; index++) {
-      final task = tasks[index];
-      print('Index: $index');
-      print('Task Name: ${task.name}');
-      print('Description: ${task.description}');
-      print('Date: ${task.date}');
-      print('Option: ${task.option}');
-      print('-------------------------');
-    }
   }
 
   Future<void> _selectDate(BuildContext context) async {
@@ -102,9 +79,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.notifications_outlined, color: accentColor),
-            onPressed: () {
-              viewTask();
-            },
+            onPressed: () {},
           ),
         ],
         leading: IconButton(
@@ -317,17 +292,20 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                           ),
                           child: IconButton(
                             icon: const Icon(Icons.check, color: Colors.white),
-                            onPressed: () async {
+                            onPressed: () {
                               // Save task logic here
-                              saveTask(
-                                Task(
-                                  name: _taskNameController.text,
-                                  description: _descriptionController.text,
-                                  date: _selectedDate,
-                                  option: _selectedOption.toString(),
-                                ),
+                              print(
+                                '\nFinal Task Name: ${_taskNameController.text}',
                               );
-
+                              print(
+                                '\nFinal Description Name: ${_descriptionController.text}',
+                              );
+                              print(
+                                '\nFinal Date: ${_selectedDate.toString()}',
+                              );
+                              print(
+                                '\nFinal Option: ${_selectedOption.toString()}',
+                              );
                               Navigator.pop(context);
                             },
                           ),
