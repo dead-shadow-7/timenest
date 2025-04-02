@@ -1,21 +1,16 @@
-# TimeNest
+# timenest
 
-**TimeNest** is a productivity tracker tool designed to help users track their tasks, improve their workflow, and succeed in achieving their goals. Built with Flutter, it provides a seamless and intuitive user experience.
+A new Flutter project.
 
-## Features
+## Getting Started
 
-- **Task Management**: Add, view, and delete tasks with ease.
-- **Customizable Options**: Choose from various task options to suit your needs.
-- **Date Selection**: Pick specific dates for tasks without including unnecessary time details.
-- **Modern UI**: A clean and visually appealing interface with custom themes.
-- **Hive Database**: Efficient local storage for tasks using Hive.
+This project is a starting point for a Flutter application.
 
-## Installation
+A few resources to get you started if this is your first Flutter project:
 
-1. Clone the repository:
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-   ```bash
-   git clone https://github.com/dead-shadow-7/timenest.git
-
-   cd timenest
-   ```
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
